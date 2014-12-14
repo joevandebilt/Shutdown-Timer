@@ -25,12 +25,13 @@ namespace Shutdown_Timer
             {
                 cmbTotalMinutes.Items.Add(i.ToString());
             }
-            cmb
+            cmbTotalMinutes.SelectedIndex = 1;
 
             for (int i=0;i<24;i++)
             {
                 cmbTotalHours.Items.Add(i.ToString());
             }
+            cmbTotalHours.SelectedIndex = 0;
         }
 
         private void cmdDoThings_Click(object sender, EventArgs e)
@@ -61,6 +62,9 @@ namespace Shutdown_Timer
                 }
                 else MessageBox.Show("How did you fuck that up?");
                 cmdDoThings.Text = "Stop";
+
+                cmbTotalMinutes.Enabled = false;
+                cmbTotalHours.Enabled = false;
             }
         }
 
@@ -94,6 +98,11 @@ namespace Shutdown_Timer
             lblSeconds.Text = "99:99:99";
             TotalSeconds = int.MaxValue;
             cmdDoThings.Text = "Start";
+            cmbTotalMinutes.Enabled = true;
+            cmbTotalHours.Enabled = true;
+            cmbTotalMinutes.SelectedIndex = 1;
+            cmbTotalHours.SelectedIndex = 0;
+
         }
     }
 }
