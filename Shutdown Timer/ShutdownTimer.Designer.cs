@@ -39,6 +39,7 @@
             this.lblSeconds = new System.Windows.Forms.Label();
             this.cmdQuit = new System.Windows.Forms.Button();
             this.cmdReset = new System.Windows.Forms.Button();
+            this.cmbCommand = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,11 +133,24 @@
             this.cmdReset.UseVisualStyleBackColor = true;
             this.cmdReset.Click += new System.EventHandler(this.cmdReset_Click);
             // 
+            // cmbCommand
+            // 
+            this.cmbCommand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCommand.FormattingEnabled = true;
+            this.cmbCommand.Items.AddRange(new object[] {
+            "Shutdown",
+            "Restart"});
+            this.cmbCommand.Location = new System.Drawing.Point(344, 35);
+            this.cmbCommand.Name = "cmbCommand";
+            this.cmbCommand.Size = new System.Drawing.Size(84, 21);
+            this.cmbCommand.TabIndex = 11;
+            // 
             // ShutdownTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 262);
+            this.Controls.Add(this.cmbCommand);
             this.Controls.Add(this.cmdReset);
             this.Controls.Add(this.cmdQuit);
             this.Controls.Add(this.panel1);
@@ -165,6 +179,7 @@
         private System.Windows.Forms.Label lblSeconds;
         private System.Windows.Forms.Button cmdQuit;
         private System.Windows.Forms.Button cmdReset;
+        private System.Windows.Forms.ComboBox cmbCommand;
     }
 }
 

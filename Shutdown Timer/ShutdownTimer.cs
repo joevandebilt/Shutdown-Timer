@@ -21,6 +21,8 @@ namespace Shutdown_Timer
         {
             InitializeComponent();
 
+            cmbCommand.Text = "Shutdown";
+
             for (int i=0; i<60;i++)
             {
                 cmbTotalMinutes.Items.Add(i.ToString());
@@ -75,7 +77,10 @@ namespace Shutdown_Timer
             if (TotalSeconds == -1)
             {
                 tmrMainTimer.Enabled = false;
-                Process.Start("shutdown.exe", "/p");
+                if (cmbCommand.Text.ToLower().Trim() == "shutdown")
+                    Process.Start("shutdown.exe", "/p");
+                else if (cmbCommand.Text.ToLower().Trim() == "restart")
+                    Process.Start("shutdown.exe", "/r /f /t 00");
             }
 
             TimeSpan t = TimeSpan.FromSeconds(TotalSeconds);
